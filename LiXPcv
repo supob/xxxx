@@ -52,11 +52,11 @@ end
 function library:Window(options)
     local TitleUI = options.Title or "Kronos Lib"
     local Accent = options.Accent or Color3.fromRGB(69, 69, 207)
-    local Logo = options.Logo or '138486046014342'
+    local Logo = options.Logo or '3610245066'
     local Toggle_Key = options.ToggleKey or Enum.KeyCode.LeftBracket
 
     local Kronos = Instance.new("ScreenGui")
-    Kronos.Name = "Menu Car"
+    Kronos.Name = "K##@#]LY@[@FTGYJJMFTRJ°ç*éN"
     Kronos.Parent = game.CoreGui
     Kronos.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -237,7 +237,7 @@ function library:Window(options)
     local TabsFunc = {}
 
     function TabsFunc:NewTab(options)
-        local Logo = options.Logo or '4483345998,18648122772'
+        local Logo = options.Logo or '4483345998'
 
         local tab_shell = Instance.new("TextButton")
         tab_shell.Name = "tab_shell"
