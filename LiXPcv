@@ -50,13 +50,13 @@ for i,v in pairs(game.CoreGui:GetChildren()) do
 end
 
 function library:Window(options)
-    local TitleUI = options.Title or "Kronos Lib"
+    local TitleUI = options.Title or "Kl"
     local Accent = options.Accent or Color3.fromRGB(69, 69, 207)
     local Logo = options.Logo or '3610245066'
     local Toggle_Key = options.ToggleKey or Enum.KeyCode.LeftBracket
 
     local Kronos = Instance.new("ScreenGui")
-    Kronos.Name = "K##@#]LY@[@FTGYJJMFTRJ°ç*éN"
+    Kronos.Name = "lkjhng3,jgl23cx,n63fj4a,k56ecSF"
     Kronos.Parent = game.CoreGui
     Kronos.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
