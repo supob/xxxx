@@ -1,1 +1,90 @@
+local Loader = {}
 
+function Loader:Create(info)
+    local name = info.Name
+    local image = info.ImageID
+    local savekey = info.SaveKey
+    local callback = info.Callback
+    
+    -- Crea il GUI
+    local Login = Instance.new("ScreenGui")
+    local Main = Instance.new("Frame")
+    local Title = Instance.new("TextLabel")
+    local AuthKey = Instance.new("Frame")
+    local TextBox = Instance.new("TextBox")
+    local Hidden = Instance.new("TextLabel")
+    local Load = Instance.new("TextButton")
+    
+    -- Aggiungi il GUI a CoreGui
+    Login.Parent = game.CoreGui
+    
+    -- Configura il frame principale
+    Main.Parent = Login
+    Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Main.Size = UDim2.new(0, 447, 0, 113)
+    Main.Position = UDim2.new(0.320512831, 0, 0.360148519, 0)
+    
+    -- Aggiungi un titolo al frame
+    Title.Parent = Main
+    Title.Text = name.." Login"
+    Title.Size = UDim2.new(1, 0, 0.2, 0)
+    Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Title.TextSize = 16
+    
+    -- Aggiungi la sezione per inserire la chiave
+    AuthKey.Parent = Main
+    AuthKey.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    AuthKey.Position = UDim2.new(0.085, 0, 0.5, 0)
+    AuthKey.Size = UDim2.new(0, 371, 0, 25)
+    
+    TextBox.Parent = AuthKey
+    TextBox.Size = UDim2.new(0, 335, 0, 25)
+    TextBox.BackgroundTransparency = 1
+    TextBox.Text = ""
+    TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextBox.TextSize = 14
+    
+    Hidden.Parent = TextBox
+    Hidden.Text = "Key"
+    Hidden.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Hidden.TextSize = 14
+    
+    -- Bottone di login
+    Load.Parent = Main
+    Load.Text = "Login"
+    Load.Size = UDim2.new(0, 200, 0, 34)
+    Load.Position = UDim2.new(0.275, 0, 0.7, 0)
+    Load.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+    Load.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Load.TextSize = 14
+    
+    -- Aggiungi il comportamento della chiave
+    Load.MouseButton1Click:Connect(function()
+        if TextBox.Text == "xzisthebest" then
+            print("Whitelisted")
+            if callback then
+                callback(TextBox.Text)
+            end
+            Login:Destroy() -- Distrugge il GUI se la chiave è corretta
+        else
+            print("Invalid Key")
+        end
+    end)
+    
+    -- Salva la chiave se abilitato
+    if savekey then
+        TextBox.Text = readfile(name..".key")
+    end
+end
+
+-- Esegui la creazione del GUI con la gestione della chiave
+Loader:Create({
+    Name = "Evolution",
+    ImageID = "rbxassetid://14222444137",
+    SaveKey = true,
+    Callback = function(EnteredKey)
+        print("Chiave corretta: " .. EnteredKey)
+    end,
+})
+
+return Loader
