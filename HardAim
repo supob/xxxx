@@ -1,3 +1,4 @@
+print("success Loaded")
 -- Aimbot Configuration
 _G.AimbotEnabled = false
 _G.TeamCheck = false
