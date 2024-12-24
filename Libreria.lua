@@ -56,7 +56,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
     LeftFrameLine.Name = "LeftFrameLine"
     LeftFrameLine.Parent = LeftFrame
-    LeftFrameLine.BackgroundColor3 = Color3.fromRGB(50, 50, 50.)
+    LeftFrameLine.BackgroundColor3 = Color3.fromRGB(31, 28, 54.)
     LeftFrameLine.BorderSizePixel = 0
     LeftFrameLine.Position = UDim2.new(0.954999983, 0, 0, 0)
     LeftFrameLine.Size = UDim2.new(0, 52, 0, 331)
@@ -226,7 +226,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     
     LeftFrame.Name = "LeftFrame"
     LeftFrame.Parent = MainFrame
-    LeftFrame.BackgroundColor3 = Color3.fromRGB(31, 28, 54)
+    LeftFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50.)
     LeftFrame.BorderSizePixel = 0
     LeftFrame.ClipsDescendants = true
     LeftFrame.Size = UDim2.new(0, 41, 0, 331)
