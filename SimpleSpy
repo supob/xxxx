@@ -1,0 +1,189 @@
+-- Decompiler will be improved soon!
+-- Decompiled with Konstant V2.1, a fast Luau decompiler made in Luau by plusgiant5 (https://discord.gg/wyButjTMhM)
+-- Decompiled on 2024-12-24 10:14:29
+-- Luau version 6, Types version 3
+-- Time taken: 0.005799 seconds
+
+-- KONSTANTWARNING: Variable analysis failed. Output will have some incorrect variable assignments
+local FE = game:GetService("ReplicatedStorage").FE
+local function var26_upvr(arg1, arg2, arg3, arg4) -- Line 6
+	-- KONSTANTWARNING: Variable analysis failed. Output will have some incorrect variable assignments
+	local var43
+	if #arg2:GetChildren() == 0 then
+		task.wait(0.1)
+	end
+	if var43 == true then
+		var43 = "On"
+	elseif var43 == false then
+		var43 = "Off"
+	end
+	local var44
+	if nil == "Brake" and var43 == "Off" and arg2.Name == "Light" and arg1.Parent.Parent.Control_Values.LightsOn.Value == true then
+		var43 = "On"
+	end
+	local var45
+	local Override = arg2:FindFirstChild("Override")
+	if Override and arg1.Parent.Parent.Control_Values.Brake.Value == true and nil ~= "DRL" and (arg2:FindFirstChild("Brake") or arg2.Name == "Brake") then
+		var45 = Override
+	else
+		var45 = arg2:FindFirstChild(var43)
+	end
+	if var43 ~= "Off" or not Override or arg1.Parent.Parent.Control_Values.Brake.Value ~= true then
+	end
+	for _, v in pairs(arg2:GetChildren()) do
+		local var50
+		local function INLINED() -- Internal function, doesn't exist in bytecode
+			var50 = v.Name
+			return var50 == "GuiLight"
+		end
+		local function INLINED_2() -- Internal function, doesn't exist in bytecode
+			var50 = v.Name
+			return var50 == "Beam"
+		end
+		if var50 == "DynamicLight" or INLINED() or INLINED_2() then
+			if var43 == "On" then
+				var50 = true
+			else
+				var50 = false
+			end
+			v.Enabled = var50
+		end
+	end
+	if not var45 then
+	else
+		for _, v_8 in pairs(var45:GetChildren()) do
+			var50 = v_8.Name
+			if var50 == "Transparency" then
+				var50 = v_8.Value
+				arg2.Transparency = var50
+			else
+				var50 = v_8.Name
+				if var50 == "Color" then
+					var50 = v_8.Value
+					arg2.Color = var50
+				else
+					var50 = v_8.Name
+					if var50 == "Material" then
+						var50 = v_8.Value
+						arg2.Material = var50
+					end
+				end
+			end
+		end
+	end
+end
+local BlinkersCore_upvr = require(script.BlinkersCore)
+local function var54_upvr(arg1, arg2) -- Line 61
+	--[[ Upvalues[1]:
+		[1]: BlinkersCore_upvr (readonly)
+	]]
+	-- KONSTANTERROR: [0] 1. Error Block 49 start (CF ANALYSIS FAILED)
+	local var60
+	if not var60 then
+		var60 = "Off"
+	end
+	arg2.Parent.Parent.Control_Values:WaitForChild("CurrentBlinker").Value = var60
+	for _, v_2 in ipairs(script.Running:GetChildren()) do
+		if not v_2.Vehicle_Lights.Value or not v_2.Vehicle_Lights.Value:IsDescendantOf(workspace.Vehicles) and not v_2.Vehicle_Lights.Value:IsDescendantOf(workspace.ATVs) and not v_2.Vehicle_Lights.Value:IsDescendantOf(workspace.Trailers) or v_2.Vehicle_Lights.Value == arg2 then
+			v_2:Destroy()
+		end
+	end
+	local pairs_result1_4, pairs_result2, pairs_result3_4 = pairs(arg2:GetChildren())
+	-- KONSTANTERROR: [0] 1. Error Block 49 end (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [216] 149. Error Block 42 start (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [216] 149. Error Block 42 end (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [94] 57. Error Block 14 start (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [94] 57. Error Block 14 end (CF ANALYSIS FAILED)
+end
+local function var67_upvr(arg1, arg2) -- Line 133
+	--[[ Upvalues[1]:
+		[1]: var26_upvr (readonly)
+	]]
+	-- KONSTANTERROR: [0] 1. Error Block 1 start (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [0] 1. Error Block 1 end (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [6] 5. Error Block 2 start (CF ANALYSIS FAILED)
+	task.wait()
+	-- KONSTANTERROR: [6] 5. Error Block 2 end (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [9] 7. Error Block 3 start (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [9] 7. Error Block 3 end (CF ANALYSIS FAILED)
+end
+local function var68_upvr(arg1) -- Line 173
+	--[[ Upvalues[2]:
+		[1]: var67_upvr (readonly)
+		[2]: var54_upvr (readonly)
+	]]
+	if not arg1:WaitForChild("Control_Values", 1) then
+	else
+		if not arg1:WaitForChild("Body", 1) then return end
+		if not arg1.Body:WaitForChild("Vehicle_Lights", 1) then return end
+		for i_9, v_9_upvr in arg1.Body.Vehicle_Lights:GetChildren() do
+			task.spawn(function() -- Line 179
+				--[[ Upvalues[3]:
+					[1]: var67_upvr (copied, readonly)
+					[2]: v_9_upvr (readonly)
+					[3]: arg1 (readonly)
+				]]
+				var67_upvr(v_9_upvr, arg1.Body.Vehicle_Lights)
+			end)
+		end
+		arg1.Body.Vehicle_Lights.ChildAdded:Connect(function(arg1_2) -- Line 184
+			--[[ Upvalues[2]:
+				[1]: var67_upvr (copied, readonly)
+				[2]: arg1 (readonly)
+			]]
+			var67_upvr(arg1_2, arg1.Body.Vehicle_Lights)
+		end)
+		if arg1.Body.Vehicle_Lights:GetAttribute("CurrentBlinkers") then
+			i_9 = "CurrentBlinkers"
+			i_9 = arg1.Body
+			var54_upvr(arg1.Body.Vehicle_Lights:GetAttribute(i_9), i_9.Vehicle_Lights)
+		end
+	end
+end
+FE.CarLights.OnClientEvent:Connect(function(arg1, arg2, arg3) -- Line 193
+	--[[ Upvalues[2]:
+		[1]: var26_upvr (readonly)
+		[2]: var68_upvr (readonly)
+	]]
+	-- KONSTANTERROR: [0] 1. Error Block 82 start (CF ANALYSIS FAILED)
+	if arg1 == "DRL" then
+		for _, v_3 in pairs(arg3:GetChildren()) do
+			if v_3.Name == "Light" and v_3:FindFirstChild("DRL") then
+				var26_upvr(arg3, v_3, arg2, arg1)
+			end
+		end
+		return
+	end
+	if arg1 == "Reverse" or arg1 == "Light" then
+		local pairs_result1_2, pairs_result2_4, pairs_result3_5 = pairs(arg3:GetChildren())
+		for _, v_4 in pairs_result1_2, pairs_result2_4, pairs_result3_5 do
+			if v_4.Name == arg1 and not v_4:FindFirstChild("DRL") then
+				var26_upvr(arg3, v_4, arg2, arg1)
+			end
+		end
+		return
+	end
+	if arg1 == "Update" then
+		var68_upvr(arg3.Parent.Parent)
+		return
+	end
+	local pairs_result1, pairs_result2_3, pairs_result3_2 = pairs(arg3:GetChildren())
+	-- KONSTANTERROR: [0] 1. Error Block 82 end (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [204] 165. Error Block 57 start (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [204] 165. Error Block 57 end (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [72] 53. Error Block 20 start (CF ANALYSIS FAILED)
+	-- KONSTANTERROR: [72] 53. Error Block 20 end (CF ANALYSIS FAILED)
+end)
+FE.CarBlinkers.OnClientEvent:Connect(var54_upvr)
+for _, v_5 in workspace.Vehicles:GetChildren() do
+	var68_upvr(v_5)
+end
+workspace.Vehicles.ChildAdded:Connect(var68_upvr)
+for _, v_6 in workspace.ATVs:GetChildren() do
+	var68_upvr(v_6)
+end
+workspace.ATVs.ChildAdded:Connect(var68_upvr)
+for _, v_7 in workspace.Trailers:GetChildren() do
+	var68_upvr(v_7)
+end
+workspace.Trailers.ChildAdded:Connect(var68_upvr)
