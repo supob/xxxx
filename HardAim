@@ -1,13 +1,14 @@
-print("success Loaded")
+print("Success Loaded")
+
 -- Aimbot Configuration
-_G.AimbotEnabled = false
+_G.AimbotEnabled = true
 _G.TeamCheck = false
 _G.AimPart = "Head"
 _G.Sensitivity = 0
 _G.LockedTarget = nil
 
 -- FOV Configuration
-_G.FOVEnabled = false
+_G.FOVEnabled = true
 _G.CircleSides = 64
 _G.CircleColor = Color3.fromRGB(255, 255, 255)
 _G.CircleTransparency = 0.7
@@ -15,6 +16,7 @@ _G.CircleRadius = 80
 _G.CircleFilled = false
 _G.CircleVisible = true
 _G.CircleThickness = 0
+
 local Camera = workspace.CurrentCamera
 local UserInputService = game:GetService("UserInputService")
 local Drawing = game:GetService("Drawing")
@@ -83,5 +85,3 @@ RunService.RenderStepped:Connect(function()
     end
     UpdateFOVVisibility() -- Update FOV visibility every frame
 end)
-
--- You can add logic for the other toggles like Wall Check, Alive Check, etc.
