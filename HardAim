@@ -1,0 +1,86 @@
+-- Aimbot Configuration
+_G.AimbotEnabled = false
+_G.TeamCheck = false
+_G.AimPart = "Head"
+_G.Sensitivity = 0
+_G.LockedTarget = nil
+
+-- FOV Configuration
+_G.FOVEnabled = false
+_G.CircleSides = 64
+_G.CircleColor = Color3.fromRGB(255, 255, 255)
+_G.CircleTransparency = 0.7
+_G.CircleRadius = 80
+_G.CircleFilled = false
+_G.CircleVisible = true
+_G.CircleThickness = 0
+local Camera = workspace.CurrentCamera
+local UserInputService = game:GetService("UserInputService")
+local Drawing = game:GetService("Drawing")
+local RunService = game:GetService("RunService")
+
+-- Create FOV Circle
+local FOVCircle = Drawing.new("Circle")
+FOVCircle.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+FOVCircle.Radius = _G.CircleRadius
+FOVCircle.Filled = _G.CircleFilled
+FOVCircle.Color = _G.CircleColor
+FOVCircle.Visible = _G.CircleVisible
+FOVCircle.Transparency = _G.CircleTransparency
+FOVCircle.NumSides = _G.CircleSides
+FOVCircle.Thickness = _G.CircleThickness
+
+-- Function to toggle FOV visibility
+local function UpdateFOVVisibility()
+    FOVCircle.Visible = _G.FOVEnabled
+end
+
+-- Function to handle Aimbot
+local function GetClosestPlayer()
+    local MaximumDistance = 80
+    local Target = nil
+    for _, v in next, game.Players:GetPlayers() do
+        if v.Name ~= game.Players.LocalPlayer.Name then
+            if _G.TeamCheck == true then
+                if v.Team ~= game.Players.LocalPlayer.Team then
+                    if v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+                        local ScreenPoint = Camera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
+                        local VectorDistance = (Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y) - Vector2.new(ScreenPoint.X, ScreenPoint.Y)).Magnitude
+                        if VectorDistance < MaximumDistance then
+                            Target = v
+                        end
+                    end
+                end
+            else
+                if v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+                    local ScreenPoint = Camera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
+                    local VectorDistance = (Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y) - Vector2.new(ScreenPoint.X, ScreenPoint.Y)).Magnitude
+                    if VectorDistance < MaximumDistance then
+                        Target = v
+                    end
+                end
+            end
+        end
+    end
+    return Target
+end
+
+-- Function to activate aimbot
+UserInputService.InputBegan:Connect(function(Input)
+    if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+        if _G.AimbotEnabled then
+            _G.LockedTarget = GetClosestPlayer()
+        end
+    end
+end)
+
+-- RunService to update aimbot behavior
+RunService.RenderStepped:Connect(function()
+    if _G.AimbotEnabled and _G.LockedTarget then
+        local targetPosition = _G.LockedTarget.Character[_G.AimPart].Position
+        Camera.CFrame = CFrame.new(Camera.CFrame.Position, targetPosition)
+    end
+    UpdateFOVVisibility() -- Update FOV visibility every frame
+end)
+
+-- You can add logic for the other toggles like Wall Check, Alive Check, etc.
