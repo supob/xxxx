@@ -409,7 +409,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
     AllPages.Name = "AllPages"
     AllPages.Parent = MainFrame
-    AllPages.BackgroundColor3 = Color3.fromRGB(24, 21, 48)  -- Modificato a grigio scuro
+    AllPages.BackgroundColor3 = Color3.fromRGB(28, 28, 28)  -- Modificato a grigio scuro
     AllPages.BorderSizePixel = 0
     AllPages.Position = UDim2.new(0.123, 0, 0.139, 0)
     AllPages.Size = UDim2.new(0, 381, 0, 271)
