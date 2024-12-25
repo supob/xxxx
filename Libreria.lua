@@ -26,7 +26,7 @@ coroutine.wrap(
 
 local WindowTable = {}
 
-function WindowTable:Window(Htitle,GMtitle,toclose)
+function WindowTable:Window(Htitle, GMtitle, toclose)
     local Library = Instance.new("ScreenGui")
     local MainFrame = Instance.new("Frame")
     local MainFrameGlow = Instance.new("Frame")
@@ -56,7 +56,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
     LeftFrameLine.Name = "LeftFrameLine"
     LeftFrameLine.Parent = LeftFrame
-    LeftFrameLine.BackgroundColor3 = Color3.fromRGB(50, 50, 50.)
+    LeftFrameLine.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
     LeftFrameLine.BorderSizePixel = 0
     LeftFrameLine.Position = UDim2.new(0.954999983, 0, 0, 0)
     LeftFrameLine.Size = UDim2.new(0, 52, 0, 331)
@@ -65,10 +65,6 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     MainFrameCorner.CornerRadius = UDim.new(0, 3)
     MainFrameCorner.Name = "MainFrameCorner"
     MainFrameCorner.Parent = MainFrame
-
-    LeftFrameCorner.CornerRadius = UDim.new(0, 3)
-    LeftFrameCorner.Name = "LeftFrameCorner"
-    LeftFrameCorner.Parent = LeftFrame
     CloseBind = toclose or Enum.KeyCode.RightControl
     local fs = false
     local uitoggled = false
@@ -122,15 +118,16 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                             {Rotation = 270}
                         ):Play()
                     end
+                    -- Aumentata leggermente la dimensione
                     TweenService:Create(
                         MainFrame,
                         TweenInfo.new(.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {Size = UDim2.new(0, 448, 0, 331)}
+                        {Size = UDim2.new(0, 458, 0, 341)} -- Aumento della larghezza e altezza
                     ):Play()
                     TweenService:Create(
                         MainFrameGlow,
                         TweenInfo.new(.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {Size = UDim2.new(0, 448, 0, 331)}
+                        {Size = UDim2.new(0, 458, 0, 341)} -- Aumento della larghezza e altezza
                     ):Play()
                     TweenService:Create(
                         MainFrameGlow1,
@@ -146,7 +143,9 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                     uitoggled = false
                 end
             end
-        end)
+        end
+    )
+
     Library.Name = "Library"
     Library.Parent = game.CoreGui
     Library.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -156,7 +155,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     MainFrame.Name = "MainFrame"
     MainFrame.Parent = MainFrameGlow
     MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-    MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)  -- Modificato a grigio scuro
+    MainFrame.BackgroundColor3 = Color3.fromRGB(22, 22, 22)  -- Grigio scuro
     MainFrame.BorderSizePixel = 0
     MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
     MainFrame.Size = UDim2.new(0, 0, 0, 0)
@@ -166,7 +165,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     MainFrameGlow.Name = "MainFrameGlow"
     MainFrameGlow.Parent = Library
     MainFrameGlow.AnchorPoint = Vector2.new(0.5, 0.5)
-    MainFrameGlow.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    MainFrameGlow.BackgroundColor3 = Color3.fromRGB(22, 22, 22)  -- Grigio scuro
     MainFrameGlow.BackgroundTransparency = 1.000
     MainFrameGlow.BorderSizePixel = 0
     MainFrameGlow.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -180,7 +179,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     MainFrameGlow1.Size = UDim2.new(1, 30, 1, 30)
     MainFrameGlow1.ZIndex = 0
     MainFrameGlow1.Image = "rbxassetid://5028857084"
-    MainFrameGlow1.ImageColor3 = Color3.fromRGB(28, 28, 28)  -- Colore scuro
+    MainFrameGlow1.ImageColor3 = Color3.fromRGB(30, 30, 30)  -- Colore scuro
     MainFrameGlow1.ScaleType = Enum.ScaleType.Slice
     MainFrameGlow1.SliceCenter = Rect.new(24, 24, 276, 276)
     MainFrameGlow1.ImageTransparency = 1
@@ -193,7 +192,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     MainFrameGlow2.Size = UDim2.new(1, 30, 1, 30)
     MainFrameGlow2.ZIndex = 0
     MainFrameGlow2.Image = "rbxassetid://5028857084"
-    MainFrameGlow2.ImageColor3 = Color3.fromRGB(28, 28, 28)  -- Colore scuro
+    MainFrameGlow2.ImageColor3 = Color3.fromRGB(30, 30, 30)  -- Colore scuro
     MainFrameGlow2.ScaleType = Enum.ScaleType.Slice
     MainFrameGlow2.SliceCenter = Rect.new(24, 24, 276, 276)
     MainFrameGlow2.ImageTransparency = 1
@@ -201,12 +200,12 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     TweenService:Create(
         MainFrame,
         TweenInfo.new(.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-        {Size = UDim2.new(0, 448, 0, 331)}
+        {Size = UDim2.new(0, 458, 0, 341)}
     ):Play()
     TweenService:Create(
         MainFrameGlow,
         TweenInfo.new(.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-        {Size = UDim2.new(0, 448, 0, 331)}
+        {Size = UDim2.new(0, 458, 0, 341)}
     ):Play()
     TweenService:Create(
         MainFrameGlow1,
@@ -226,16 +225,16 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     
     LeftFrame.Name = "LeftFrame"
     LeftFrame.Parent = MainFrame
-    LeftFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50.)
+    LeftFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)  -- Modificato a grigio scuro
     LeftFrame.BorderSizePixel = 0
     LeftFrame.ClipsDescendants = true
-    LeftFrame.Size = UDim2.new(0, 41, 0, 331)
+    LeftFrame.Size = UDim2.new(0, 41, 0, 331)  -- Rimanere come era
     LeftFrame.ZIndex = 3
     LeftFrame.Visible = true
 
     LeftFrameBtn.Name = "LeftFrameBtn"
     LeftFrameBtn.Parent = LeftFrame
-    LeftFrameBtn.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+    LeftFrameBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Modificato a grigio scuro
     LeftFrameBtn.BackgroundTransparency = 1.000
     LeftFrameBtn.BorderSizePixel = 0
     LeftFrameBtn.Position = UDim2.new(0, 0, 0.00999999978, 0)
@@ -256,7 +255,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     LeftFrameBtnIcon.Selectable = true
     LeftFrameBtnIcon.Size = UDim2.new(0, 27, 0, 27)
     LeftFrameBtnIcon.ZIndex = 3
-    LeftFrameBtnIcon.Image = "rbxassetid://5844057859"  -- L'icona rimane invariata
+    LeftFrameBtnIcon.Image = "rbxassetid://5844057859"
 
     MainTabs.Name = "MainTabs"
     MainTabs.Parent = LeftFrame
@@ -270,7 +269,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
     MainTabsBtn.Name = "MainTabsBtn"
     MainTabsBtn.Parent = MainTabs
-    MainTabsBtn.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+    MainTabsBtn.BackgroundColor3 = Color3.fromRGB(80, 80, 80)  -- Cambiato a un grigio scuro
     MainTabsBtn.BackgroundTransparency = 1.000
     MainTabsBtn.Position = UDim2.new(1.04878044, 0, 0.126829565, 0)
     MainTabsBtn.Size = UDim2.new(0, 101, 0, 29)
@@ -309,7 +308,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
     Shapes.Name = "Shapes"
     Shapes.Parent = MainTabs
-    Shapes.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+    Shapes.BackgroundColor3 = Color3.fromRGB(90, 90, 90)  -- Cambiato a grigio scuro
     Shapes.BackgroundTransparency = 1.000
     Shapes.BorderSizePixel = 0
     Shapes.Selectable = true
@@ -320,7 +319,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     Triangle.Parent = Shapes
     Triangle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Triangle.BackgroundTransparency = 1.000
-    Triangle.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Triangle.BorderColor3 = Color3.fromRGB(30, 30, 30)
     Triangle.Position = UDim2.new(0.423999995, 0, 0.270999998, 0)
     Triangle.Size = UDim2.new(0, 8, 0, 8)
     Triangle.ZIndex = 3
@@ -330,7 +329,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     Square.Parent = Shapes
     Square.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Square.BackgroundTransparency = 1.000
-    Square.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Square.BorderColor3 = Color3.fromRGB(30, 30, 30)
     Square.Position = UDim2.new(0.285780489, 0, 0.49642849, 0)
     Square.Size = UDim2.new(0, 8, 0, 8)
     Square.ZIndex = 3
@@ -340,7 +339,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     Circle.Parent = Shapes
     Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Circle.BackgroundTransparency = 1.000
-    Circle.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Circle.BorderColor3 = Color3.fromRGB(30, 30, 30)
     Circle.Position = UDim2.new(0.515999973, 0, 0.495999992, 0)
     Circle.Size = UDim2.new(0, 8, 0, 8)
     Circle.ZIndex = 3
@@ -397,7 +396,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
     ShadowFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     ShadowFrame.BackgroundTransparency = 1.000
     ShadowFrame.BorderSizePixel = 0
-    ShadowFrame.Size = UDim2.new(0, 448, 0, 331)
+    ShadowFrame.Size = UDim2.new(0, 458, 0, 341)
     ShadowFrame.Position = UDim2.new(0, 0, 0, 0)
     ShadowFrame.Visible = false
     ShadowFrame.ZIndex = 2
@@ -409,13 +408,13 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
     AllPages.Name = "AllPages"
     AllPages.Parent = MainFrame
-    AllPages.BackgroundColor3 = Color3.fromRGB(28, 28, 28)  -- Modificato a grigio scuro
+    AllPages.BackgroundColor3 = Color3.fromRGB(40, 40, 40)  -- Modificato a grigio scuro
     AllPages.BorderSizePixel = 0
     AllPages.Position = UDim2.new(0.123, 0, 0.139, 0)
-    AllPages.Size = UDim2.new(0, 381, 0, 271)
+    AllPages.Size = UDim2.new(0, 391, 0, 271)  -- Aumentato leggermente
     AllPages.BackgroundTransparency = 0
     AllPages.Visible = true
-    
+
     local tog3 = false
 
     LeftFrameBtn.MouseButton1Click:Connect(function()
@@ -481,6 +480,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             ShadowFrame.Visible = false
         end
     end)
+
     local function YLNRBC_fake_script() -- MainTabsBtn.MainTabsBtnScript 
         local script = Instance.new('LocalScript', MainTabsBtn)
 
@@ -631,7 +631,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             NewPages.ScrollBarThickness = 2
         end)
 
-        TabBtnGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(27, 96, 186)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(19, 101, 190))}
+        TabBtnGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(27, 27, 27)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(50, 50, 50))}  -- Gradient modificato
         TabBtnGradient.Name = "TabBtnGradient"
         TabBtnGradient.Parent = TabBtn
 
@@ -699,7 +699,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
             Button.Name = "Button"
             Button.Parent = NewPages
-            Button.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a un grigio scuro
+            Button.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a un grigio scuro
             Button.BorderSizePixel = 0
             Button.Size = UDim2.new(0, 375, 0, 32)
             Button.AutoButtonColor = false
@@ -707,6 +707,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             Button.Text = ""
             Button.TextColor3 = Color3.fromRGB(255, 255, 255) -- Testo bianco per contrasto
             Button.TextSize = 14.000
+            
             Button.MouseButton1Click:Connect(function()
                 callback()
                 TweenService:Create(
@@ -722,7 +723,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                 TweenService:Create(
                     Button,
                     TweenInfo.new(.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                    {BackgroundColor3 = Color3.fromRGB(135, 128, 176)} -- Colore di sfondo del bottone
+                    {BackgroundColor3 = Color3.fromRGB(45, 45, 45)} -- Colore di sfondo del bottone
                 ):Play()
                 wait(.2)
                 TweenService:Create(
@@ -733,7 +734,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                 TweenService:Create(
                     Button,
                     TweenInfo.new(.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                    {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
+                    {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Ripristina il colore di sfondo
                 ):Play()
                 TweenService:Create(
                     Button,
@@ -757,7 +758,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                     TweenService:Create(
                         Button,
                         TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
+                        {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Ripristina il colore di sfondo
                     ):Play()
                 end
             )
@@ -786,14 +787,15 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
             ToggleBtn.Name = "ToggleBtn"
             ToggleBtn.Parent = NewPages
-            ToggleBtn.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
+            ToggleBtn.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a grigio scuro
             ToggleBtn.BorderSizePixel = 0
             ToggleBtn.Size = UDim2.new(0, 375, 0, 32)
             ToggleBtn.AutoButtonColor = false
             ToggleBtn.Font = Enum.Font.SourceSans
             ToggleBtn.Text = ""
-            ToggleBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
+            ToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
             ToggleBtn.TextSize = 14.000
+            
             ToggleBtn.MouseButton1Click:Connect(function()
                 tog = not tog
                 callback(tog)
@@ -801,13 +803,13 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                     TweenService:Create(
                         ToggleBox,
                         TweenInfo.new(.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(135, 128, 176)} -- Colore attivato
+                        {BackgroundColor3 = Color3.fromRGB(45, 45, 45)} -- Colore attivato
                     ):Play()
                 else
                     TweenService:Create(
                         ToggleBox,
                         TweenInfo.new(.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(74, 68, 94)} -- Colore disattivato
+                        {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Colore disattivato
                     ):Play()
                 end
             end)
@@ -827,7 +829,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                     TweenService:Create(
                         ToggleBtn,
                         TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
+                        {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Ripristina il colore di sfondo
                     ):Play()
                 end
             )
@@ -846,7 +848,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
             ToggleBox.Name = "ToggleBox"
             ToggleBox.Parent = ToggleBtn
-            ToggleBox.BackgroundColor3 = Color3.fromRGB(74, 68, 94) -- Cambiato a grigio scuro
+            ToggleBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Cambiato a grigio scuro
             ToggleBox.Position = UDim2.new(0.927419364, 0, 0.15625, 0)
             ToggleBox.Size = UDim2.new(0, 21, 0, 21)
 
@@ -856,7 +858,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
         end
 
-        function ElementHandler:Slider(text,min,max,start,callback)
+        function ElementHandler:Slider(text, min, max, start, callback)
             local SliderFunc = {}
             local dragging = false
             local Slider = Instance.new("TextButton")
@@ -864,15 +866,13 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             local SlideFrame = Instance.new("Frame")
             local CurrentValueFrame = Instance.new("Frame")
             local SlideCircle = Instance.new("ImageButton")
-            local ArrowBtn = Instance.new("ImageButton")
-            local ArrowIco = Instance.new("ImageLabel")
             local Value = Instance.new("TextLabel")
             local ValueCorner = Instance.new("UICorner")
             local SlideFrameCorner = Instance.new("UICorner")
 
             Slider.Name = "Slider"
             Slider.Parent = NewPages
-            Slider.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
+            Slider.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a grigio scuro
             Slider.ClipsDescendants = false
             Slider.Position = UDim2.new(0, 372, 0, 51)
             Slider.Size = UDim2.new(0, 375, 0, 51)
@@ -898,7 +898,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                     TweenService:Create(
                         Slider,
                         TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
+                        {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Ripristina il colore di sfondo
                     ):Play()
                 end
             )
@@ -918,10 +918,10 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
             SlideFrame.Name = "SlideFrame"
             SlideFrame.Parent = SliderTitle
-            SlideFrame.BackgroundColor3 = Color3.fromRGB(74, 68, 94) -- Cambiato a grigio scuro
+            SlideFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Cambiato a grigio scuro
             SlideFrame.BorderSizePixel = 0
             SlideFrame.Position = UDim2.new(0.003, 0, 0.945, 0)
-            SlideFrame.Size = UDim2.new(0, 340,0, 3)
+            SlideFrame.Size = UDim2.new(0, 340, 0, 3)
             SlideFrame.BackgroundTransparency = 0
 
             SlideFrameCorner.Name = "SlideFrameCorner"
@@ -935,17 +935,16 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
             SlideCircle.Name = "SlideCircle"
             SlideCircle.Parent = SlideFrame
-            SlideCircle.BackgroundColor3 = Color3.fromRGB(124, 37, 255)
+            SlideCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255) -- Color bianco per il cerchio
             SlideCircle.BackgroundTransparency = 1.000
             SlideCircle.Position = UDim2.new((start or 0) / max, -6, -0.93499995, 0)
             SlideCircle.Size = UDim2.new(0, 8, 0, 8)
             SlideCircle.Image = "rbxassetid://3570695787"
-            SlideCircle.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
             Value.Name = "Value"
             Value.Parent = SliderTitle
             Value.AnchorPoint = Vector2.new(1, 0.5)
-            Value.BackgroundColor3 = Color3.fromRGB(74, 68, 94) -- Cambiato a grigio scuro
+            Value.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Cambiato a grigio scuro
             Value.BackgroundTransparency = 0
             Value.Position = UDim2.new(0.983, 0, 0.484, 0)
             Value.Size = UDim2.new(0, 38, 0, 21)
@@ -969,10 +968,6 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             ValueCorner.CornerRadius = UDim.new(0, 4)
             ValueCorner.Name = "ValueCorner"
             ValueCorner.Parent = Value  
-
-            ArrowBtn.MouseButton1Click:Connect(function()
-                print("")
-            end)
 
             local function move(input)
                 local pos =
@@ -1067,7 +1062,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
 
             LabelText.Name = "LabelText"
             LabelText.Parent = Label
-            LabelText.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
+            LabelText.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a grigio scuro
             LabelText.BorderSizePixel = 0
             LabelText.Size = UDim2.new(1, 0, 1, 0)
             LabelText.Font = Enum.Font.Gotham
@@ -1091,7 +1086,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             Dropdown.Name = "Dropdown"
             Dropdown.Parent = NewPages
             Dropdown.AnchorPoint = Vector2.new(0.5, 0.5)
-            Dropdown.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
+            Dropdown.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a grigio scuro
             Dropdown.BorderSizePixel = 0
             Dropdown.Position = UDim2.new(-0.436928689, 0, 0.696994126, 0)
             Dropdown.Size = UDim2.new(0, 375, 0, 32)
@@ -1116,7 +1111,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                     TweenService:Create(
                         Dropdown,
                         TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
+                        {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Ripristina il colore di sfondo
                     ):Play()
                 end
             )
@@ -1152,7 +1147,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             DropItemHolder.Name = "DropItemHolder"
             DropItemHolder.Parent = NewPages
             DropItemHolder.Active = true
-            DropItemHolder.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
+            DropItemHolder.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a grigio scuro
             DropItemHolder.BackgroundTransparency = 0
             DropItemHolder.BorderSizePixel = 0
             DropItemHolder.Position = UDim2.new(0, 0, 0.202399909, 0)
@@ -1225,9 +1220,9 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                 Option.Name = "Option"
                 Option.Parent = DropItemHolder
                 Option.AnchorPoint = Vector2.new(0.5, 0.5)
-                Option.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
+                Option.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cambiato a grigio scuro
                 Option.BorderSizePixel = 0
-                Option.BorderColor3 = Color3.fromRGB(24, 21, 48)
+                Option.BorderColor3 = Color3.fromRGB(30, 30, 30)
                 Option.Position = UDim2.new(0.494680852, 0, 0.147959188, 0)
                 Option.Size = UDim2.new(0, 375, 0, 30)
                 Option.AutoButtonColor = false
@@ -1264,7 +1259,7 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
                         TweenService:Create(
                             Option,
                             TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
+                            {BackgroundColor3 = Color3.fromRGB(35, 35, 35)} -- Ripristina il colore di sfondo
                         ):Play()
                         TweenService:Create(
                             Option,
@@ -1304,456 +1299,9 @@ function WindowTable:Window(Htitle,GMtitle,toclose)
             NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
         end
         
-        function ElementHandler:Colorpicker(text, preset, callback)
-            local ColorPickerToggled = false
-            local OldToggleColor = Color3.fromRGB(0, 0, 0)
-            local OldColor = Color3.fromRGB(0, 0, 0)
-            local OldColorSelectionPosition = nil
-            local OldHueSelectionPosition = nil
-            local ColorH, ColorS, ColorV = 1, 1, 1
-            local RainbowColorPicker = false
-            local ColorPickerInput = nil
-            local ColorInput = nil
-            local HueInput = nil
-
-            local Colorpicker = Instance.new("TextButton")
-            local ColorPickerTitle = Instance.new("TextLabel")
-            local CurrentColor = Instance.new("Frame")
-            local ColorUICorner = Instance.new("UICorner")
-
-            Colorpicker.Name = "Colorpicker"
-            Colorpicker.Parent = NewPages
-            Colorpicker.AnchorPoint = Vector2.new(0.5, 0.5)
-            Colorpicker.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
-            Colorpicker.Position = UDim2.new(-0.436928689, 0, 0.696994126, 0)
-            Colorpicker.Size = UDim2.new(0, 375, 0, 32)
-            Colorpicker.AutoButtonColor = false
-            Colorpicker.Font = Enum.Font.Gotham
-            Colorpicker.BorderSizePixel = 0
-            Colorpicker.Text = ""
-            Colorpicker.TextColor3 = Color3.fromRGB(195, 195, 195)
-            Colorpicker.TextSize = 14.000
-            
-            Colorpicker.MouseEnter:Connect(
-                function(enter)
-                    TweenService:Create(
-                        Colorpicker,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(33, 31, 56)} -- Colore quando ci si passa sopra
-                    ):Play()
-                end
-            )
-
-            Colorpicker.MouseLeave:Connect(
-                function(enter)
-                    TweenService:Create(
-                        Colorpicker,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} -- Ripristina il colore di sfondo
-                    ):Play()
-                end
-            )
-
-            ColorPickerTitle.Name = "ColorPickerTitle"
-            ColorPickerTitle.Parent = Colorpicker
-            ColorPickerTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ColorPickerTitle.BackgroundTransparency = 1.000
-            ColorPickerTitle.Position = UDim2.new(0.03763441, 0, 0, 0)
-            ColorPickerTitle.Size = UDim2.new(0.962365568, 0, 1, 0)
-            ColorPickerTitle.Font = Enum.Font.Gotham
-            ColorPickerTitle.TextColor3 = Color3.fromRGB(255, 255, 255) -- Testo bianco per contrasto
-            ColorPickerTitle.TextSize = 14.000
-            ColorPickerTitle.TextXAlignment = Enum.TextXAlignment.Left
-            ColorPickerTitle.Text = text
-
-            CurrentColor.Name = "CurrentColor"
-            CurrentColor.Parent = Colorpicker
-            CurrentColor.BackgroundColor3 = preset
-            CurrentColor.Position = UDim2.new(0.927419364, 0, 0.15625, 0)
-            CurrentColor.Size = UDim2.new(0, 21, 0, 21)
-
-            ColorUICorner.CornerRadius = UDim.new(0, 6)
-            ColorUICorner.Name = "ColorUICorner"
-            ColorUICorner.Parent = CurrentColor
-            local ColorpickerFrame = Instance.new("TextButton")
-            local Hue = Instance.new("ImageLabel")
-            local huecorner = Instance.new("UICorner")
-            local UIGradient = Instance.new("UIGradient")
-            local HueSelection = Instance.new("ImageLabel")
-            local Color = Instance.new("ImageLabel")
-            local UICorner = Instance.new("UICorner")
-            local ColorSelection = Instance.new("ImageLabel")
-            local Confirm = Instance.new("TextButton")
-            local ButtonUICorner = Instance.new("UICorner")
-            local RainbowToggle = Instance.new("TextButton")
-            local RainbowToggleUICorner = Instance.new("UICorner")
-            local RainbowTitle = Instance.new("TextLabel")
-            local RainbowStatus = Instance.new("Frame")
-            local RainbowStatusUICorner = Instance.new("UICorner")
-
-            ColorpickerFrame.Name = "ColorpickerFrame"
-            ColorpickerFrame.Parent = NewPages
-            ColorpickerFrame.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
-            ColorpickerFrame.Position = UDim2.new(0.0457920805, 0, 0.685394764, 0)
-            ColorpickerFrame.Size = UDim2.new(0, 375, 0, 0)
-            ColorpickerFrame.Visible = false
-            ColorpickerFrame.AutoButtonColor = false
-            ColorpickerFrame.BorderSizePixel = 0
-            ColorpickerFrame.ClipsDescendants = true
-
-            Hue.Name = "Hue"
-            Hue.Parent = ColorpickerFrame
-            Hue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Hue.Position = UDim2.new(0, 240, 0, 9)
-            Hue.Size = UDim2.new(0, 30, 0, 93)
-
-            huecorner.CornerRadius = UDim.new(0, 3)
-            huecorner.Name = "huecorner"
-            huecorner.Parent = Hue
-
-            UIGradient.Color =
-                ColorSequence.new {
-                    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)),
-                    ColorSequenceKeypoint.new(0.20, Color3.fromRGB(234, 255, 0)),
-                    ColorSequenceKeypoint.new(0.40, Color3.fromRGB(21, 255, 0)),
-                    ColorSequenceKeypoint.new(0.60, Color3.fromRGB(0, 255, 255)),
-                    ColorSequenceKeypoint.new(0.80, Color3.fromRGB(0, 17, 255)),
-                    ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 0, 251)),
-                    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 4))
-                }
-            UIGradient.Rotation = 270
-            UIGradient.Parent = Hue
-
-            HueSelection.Name = "HueSelection"
-            HueSelection.Parent = Hue
-            HueSelection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            HueSelection.BackgroundTransparency = 1.000
-            HueSelection.Position = UDim2.new(0.48, 0, 1 - select(1, Color3.toHSV(preset)))
-            HueSelection.Size = UDim2.new(0, 18, 0, 18)
-            HueSelection.Image = "http://www.roblox.com/asset/?id=4805639000"
-            HueSelection.AnchorPoint = Vector2.new(0.5, 0.5)
-
-            Color.Name = "Color"
-            Color.Parent = ColorpickerFrame
-            Color.BackgroundColor3 = preset
-            Color.Position = UDim2.new(0, 8, 0, 9)
-            Color.Size = UDim2.new(0, 219, 0, 93)
-            Color.ZIndex = 10
-            Color.Image = "rbxassetid://4155801252"
-
-            UICorner.CornerRadius = UDim.new(0, 3)
-            UICorner.Parent = Color
-
-            ColorSelection.Name = "ColorSelection"
-            ColorSelection.Parent = Color
-            ColorSelection.AnchorPoint = Vector2.new(0.5, 0.5)
-            ColorSelection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ColorSelection.ZIndex = 25
-            ColorSelection.AnchorPoint = Vector2.new(0.5, 0.5)
-            ColorSelection.BackgroundTransparency = 1.000
-            ColorSelection.Position = UDim2.new(preset and select(3, Color3.toHSV(preset)))
-            ColorSelection.Size = UDim2.new(0, 18, 0, 18)
-            ColorSelection.Image = "http://www.roblox.com/asset/?id=4805639000"
-            ColorSelection.ScaleType = Enum.ScaleType.Fit
-
-            Confirm.Name = "Confirm"
-            Confirm.Parent = ColorpickerFrame
-            Confirm.AnchorPoint = Vector2.new(0.5, 0.5)
-            Confirm.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
-            Confirm.Position = UDim2.new(0.86292477, 0, 0.211035922, 0)
-            Confirm.Size = UDim2.new(0, 98, 0, 29)
-            Confirm.AutoButtonColor = false
-            Confirm.Font = Enum.Font.Gotham
-            Confirm.Text = "Confirm"
-            Confirm.TextColor3 = Color3.fromRGB(195, 195, 195) -- Testo grigio
-                        Confirm.TextSize = 14.000
-
-            Confirm.MouseEnter:Connect(
-                function()
-                    TweenService:Create(
-                        Confirm,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(33, 31, 56)} 
-                    ):Play()
-                    TweenService:Create(
-                        Confirm,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {TextColor3 = Color3.fromRGB(255, 255, 255)} 
-                    ):Play()
-                end
-            )
-
-            Confirm.MouseLeave:Connect(
-                function()
-                    TweenService:Create(
-                        Confirm,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(29, 26, 53)} 
-                    ):Play()
-                    TweenService:Create(
-                        Confirm,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {TextColor3 = Color3.fromRGB(195, 195, 195)} 
-                    ):Play()
-                end
-            )
-
-            ButtonUICorner.CornerRadius = UDim.new(0, 6)
-            ButtonUICorner.Name = "ButtonUICorner"
-            ButtonUICorner.Parent = Confirm
-
-            RainbowToggle.Name = "RainbowToggle"
-            RainbowToggle.Parent = ColorpickerFrame
-            RainbowToggle.AnchorPoint = Vector2.new(0.5, 0.5)
-            RainbowToggle.BackgroundColor3 = Color3.fromRGB(29, 26, 53) -- Cambiato a grigio scuro
-            RainbowToggle.Position = UDim2.new(0.84592477, 0, 0.498795807, 0)
-            RainbowToggle.Size = UDim2.new(0, 80, 0, 29)
-            RainbowToggle.AutoButtonColor = false
-            RainbowToggle.Font = Enum.Font.Gotham
-            RainbowToggle.Text = ""
-            RainbowToggle.TextColor3 = Color3.fromRGB(195, 195, 195)
-            RainbowToggle.TextSize = 14.000
-            RainbowToggle.Visible = false
-
-            RainbowToggleUICorner.CornerRadius = UDim.new(0, 6)
-            RainbowToggleUICorner.Name = "RainbowToggleUICorner"
-            RainbowToggleUICorner.Parent = RainbowToggle
-
-            RainbowTitle.Name = "RainbowTitle"
-            RainbowTitle.Parent = RainbowToggle
-            RainbowTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            RainbowTitle.BackgroundTransparency = 1.000
-            RainbowTitle.Position = UDim2.new(0.0244399179, 0, 0.068965517, 0)
-            RainbowTitle.Size = UDim2.new(0.962365568, 0, 1, 0)
-            RainbowTitle.Font = Enum.Font.Gotham
-            RainbowTitle.Text = "Rainbow"
-            RainbowTitle.TextColor3 = Color3.fromRGB(195, 195, 195)
-            RainbowTitle.TextSize = 14.000
-            RainbowTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-            RainbowStatus.Name = "RainbowStatus"
-            RainbowStatus.Parent = RainbowToggle
-            RainbowStatus.BackgroundColor3 = Color3.fromRGB(74, 68, 94) -- Cambiato a grigio scuro
-            RainbowStatus.Position = UDim2.new(0.927419364, 0, 0.15625, 0)
-            RainbowStatus.Size = UDim2.new(0, 21, 0, 21)
-
-            RainbowStatusUICorner.CornerRadius = UDim.new(0, 6)
-            RainbowStatusUICorner.Name = "RainbowStatusUICorner"
-            RainbowStatusUICorner.Parent = RainbowStatus
-
-            local function UpdateColorPicker(nope)
-                CurrentColor.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
-                Color.BackgroundColor3 = Color3.fromHSV(ColorH, 1, 1)
-
-                pcall(callback, CurrentColor.BackgroundColor3)
-            end
-
-            ColorH =
-                1 -
-                (math.clamp(HueSelection.AbsolutePosition.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
-                    Hue.AbsoluteSize.Y)
-            ColorS =
-                (math.clamp(ColorSelection.AbsolutePosition.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
-                    Color.AbsoluteSize.X)
-            ColorV =
-                1 -
-                (math.clamp(ColorSelection.AbsolutePosition.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
-                    Color.AbsoluteSize.Y)
-
-            CurrentColor.BackgroundColor3 = preset
-            Color.BackgroundColor3 = preset
-            pcall(callback, CurrentColor.BackgroundColor3)
-
-            Color.InputBegan:Connect(
-                function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        if RainbowColorPicker then
-                            return
-                        end
-
-                        if ColorInput then
-                            ColorInput:Disconnect()
-                        end
-
-                        ColorInput =
-                            RunService.RenderStepped:Connect(
-                                function()
-                                local ColorX =
-                                    (math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
-                                        Color.AbsoluteSize.X)
-                                local ColorY =
-                                    (math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
-                                        Color.AbsoluteSize.Y)
-
-                                ColorSelection.Position = UDim2.new(ColorX, 0, ColorY, 0)
-                                ColorS = ColorX
-                                ColorV = 1 - ColorY
-
-                                UpdateColorPicker(true)
-                            end
-                            )
-                    end
-                end
-            )
-
-            Color.InputEnded:Connect(
-                function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        if ColorInput then
-                            ColorInput:Disconnect()
-                        end
-                    end
-                end
-            )
-
-            Hue.InputBegan:Connect(
-                function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        if RainbowColorPicker then
-                            return
-                        end
-
-                        if HueInput then
-                            HueInput:Disconnect()
-                        end
-
-                        HueInput =
-                            RunService.RenderStepped:Connect(
-                                function()
-                                local HueY =
-                                    (math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
-                                        Hue.AbsoluteSize.Y)
-
-                                HueSelection.Position = UDim2.new(0.48, 0, HueY, 0)
-                                ColorH = 1 - HueY
-
-                                UpdateColorPicker(true)
-                            end
-                            )
-                    end
-                end
-            )
-
-            Hue.InputEnded:Connect(
-                function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        if HueInput then
-                            HueInput:Disconnect()
-                        end
-                    end
-                end
-            )
-
-            RainbowToggle.MouseButton1Down:Connect(
-                function()
-                    RainbowColorPicker = not RainbowColorPicker
-
-                    if ColorInput then
-                        ColorInput:Disconnect()
-                    end
-
-                    if HueInput then
-                        HueInput:Disconnect()
-                    end
-
-                    if RainbowColorPicker then
-                        TweenService:Create(
-                            RainbowStatus,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(135, 128, 176)} 
-                        ):Play()
-
-                        OldToggleColor = CurrentColor.BackgroundColor3
-                        OldColor = Color.BackgroundColor3
-                        OldColorSelectionPosition = ColorSelection.Position
-                        OldHueSelectionPosition = HueSelection.Position
-
-                        while RainbowColorPicker do
-                            CurrentColor.BackgroundColor3 = Color3.fromHSV(WindowTable.RainbowColorValue, 1, 1)
-                            Color.BackgroundColor3 = Color3.fromHSV(WindowTable.RainbowColorValue, 1, 1)
-
-                            ColorSelection.Position = UDim2.new(1, 0, 0, 0)
-                            HueSelection.Position = UDim2.new(0.48, 0, 0, WindowTable.HueSelectionPosition)
-
-                            pcall(callback, CurrentColor.BackgroundColor3)
-                            wait()
-                        end
-                    elseif not RainbowColorPicker then
-                        TweenService:Create(
-                            RainbowStatus,
-                            TweenInfo.new(.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(74, 68, 94)} 
-                        ):Play()
-                        CurrentColor.BackgroundColor3 = OldToggleColor
-                        Color.BackgroundColor3 = OldColor
-
-                        ColorSelection.Position = OldColorSelectionPosition
-                        HueSelection.Position = OldHueSelectionPosition
-
-                        pcall(callback, CurrentColor.BackgroundColor3)
-                    end
-                end
-            )
-
-            Colorpicker.MouseButton1Click:Connect(
-                function()
-                    if ColorPickerToggled == false then
-                        ColorPickerToggled = not ColorPickerToggled
-                        ColorpickerFrame.Visible = true
-                        ColorpickerFrame:TweenSize(
-                            UDim2.new(0, 375, 0, 111),
-                            Enum.EasingDirection.Out,
-                            Enum.EasingStyle.Quart,
-                            0.1,
-                            true
-                        )
-                        repeat
-                            wait()
-                        until ColorpickerFrame.Size == UDim2.new(0, 375, 0, 111)
-                        NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
-                    else
-                        ColorPickerToggled = not ColorPickerToggled
-                        ColorpickerFrame:TweenSize(
-                            UDim2.new(0, 375, 0, 0),
-                            Enum.EasingDirection.Out,
-                            Enum.EasingStyle.Quart,
-                            0.1,
-                            true
-                        )
-                        wait(.05)
-                        ColorpickerFrame.Visible = false
-                        repeat
-                            wait()
-                        until ColorpickerFrame.Size == UDim2.new(0, 375, 0, 0)
-                        NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
-                    end
-                end
-            )
-
-            Confirm.MouseButton1Click:Connect(
-                function()
-                    ColorPickerToggled = not ColorPickerToggled
-                    ColorpickerFrame:TweenSize(
-                        UDim2.new(0, 375, 0, 0),
-                        Enum.EasingDirection.Out,
-                        Enum.EasingStyle.Quart,
-                        0.1,
-                        true
-                    )
-                    wait(.05)
-                    ColorpickerFrame.Visible = false
-                    repeat
-                        wait()
-                    until ColorpickerFrame.Size == UDim2.new(0, 375, 0, 0)
-                    NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
-                end
-            )
-            NewPages.CanvasSize = UDim2.new(0, 0, 0, ElementListing.AbsoluteContentSize.Y)
-        end
-
         return ElementHandler
     end
-    
+
     function Tabs:TabLine(txt)
         local TabLine = Instance.new("TextLabel")
 
