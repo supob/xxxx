@@ -1,3 +1,5 @@
+-- // Usage
+
 --[[
 
 local Loader = loadstring(game:HttpGet("https://raw.githubusercontent.com/laagginq/ui-libraries/main/loader_library/src.lua"))()
@@ -9,11 +11,10 @@ Loader:Create({
     Callback = function(EnteredKey) 
         if EnteredKey == "xzisthebest" then 
             print("Whitelisted")
-            -- Distrugge il GUI solo se la chiave è corretta
-            Loader:Destroy("Evolution")
         else
             print("Invalid Key")
         end
+        Loader:Destroy("Evolution")
     end,
 })
 
@@ -202,8 +203,7 @@ function Loader:Create(info)
 		if savekey then
 			writefile(name..".key",TextBox.Text)
 		end
-		-- Esegui il callback con la chiave inserita
-		task.spawn(callback, TextBox.Text)
+		task.spawn(callback,TextBox.Text)
 	end)
 	
 	if savekey then
@@ -211,13 +211,14 @@ function Loader:Create(info)
 	end
 
 	dragify(Main)
+	
 end
 
 function Loader:Delete(name)
 	if game.CoreGui:FindFirstChild(name) then
 		game.CoreGui:FindFirstChild(name):Destroy()
 	else
-		error("[Loader]: Could not be found!")
+		error("[Loader]: Could not be found.")
 	end
 end
 
